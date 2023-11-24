@@ -1,6 +1,6 @@
 [build]
 builder = "dockerfile"
-dockerfilePath = "./BizWebAPI/Dockerfile"
+dockerfilePath = "Dockerfile"
 
 [deploy]
 startCommand = "dotnet BizWebAPI.dll"
