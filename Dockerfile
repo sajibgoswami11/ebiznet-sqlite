@@ -20,5 +20,5 @@ WORKDIR /app
 COPY --from=publish /app/publish .
 ENTRYPOINT ["dotnet", "BizWebAPI.dll"]
 
-# Set the ASPNETCORE_URLS environment variable to include both HTTP and HTTPS URLs
-ENV ASPNETCORE_URLS=http://+:80;https://+:443
+# # Set the ASPNETCORE_URLS environment variable to include both HTTP and HTTPS URLs
+# ENV ASPNETCORE_URLS=http://+:80;https://+:443
