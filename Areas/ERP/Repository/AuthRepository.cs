@@ -1,7 +1,7 @@
 ﻿using BizWebAPI.Areas.ERP.Models;
 using BizWebAPI.Common;
 using Dapper;
-using Oracle.ManagedDataAccess.Client;
+//using Oracle.ManagedDataAccess.Client;
 using System;
 using System.Linq;
 using System.Threading.Tasks;

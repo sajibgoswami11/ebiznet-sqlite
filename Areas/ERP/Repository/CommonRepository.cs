@@ -3,7 +3,7 @@ using BizWebAPI.Areas.ERP.Dtos;
 using BizWebAPI.Common;
 using Dapper;
 using Microsoft.Data.Sqlite;
-using Oracle.ManagedDataAccess.Client;
+////using Oracle.ManagedDataAccess.Client;
 using System;
 using System.Threading.Tasks;
 

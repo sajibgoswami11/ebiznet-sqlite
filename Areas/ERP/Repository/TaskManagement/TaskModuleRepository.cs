@@ -8,7 +8,7 @@ using BizWebAPI.Areas.ERP.Models.TaskManagement;
 using BizWebAPI.Common;
 using Dapper;
 using Microsoft.Data.Sqlite;
-using Oracle.ManagedDataAccess.Client;
+//using Oracle.ManagedDataAccess.Client;
 
 namespace BizWebAPI.Areas.ERP.Repository.TaskManagement
 {
