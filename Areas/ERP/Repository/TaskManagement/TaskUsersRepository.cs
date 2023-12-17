@@ -645,7 +645,7 @@ AND SM.SYS_MENU_ID NOT IN (
 ";
 
                 var param = new { sys_usr_id = userId };
-                var menuData = await conn.QueryAsync<RoleWiseMenu>(sQl, null);
+                var menuData = await conn.QueryAsync<RoleWiseMenu>(sQl, param);
                 return menuData;
             }
             catch (Exception ex)
