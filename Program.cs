@@ -20,7 +20,9 @@ namespace BizWebAPI
             Host.CreateDefaultBuilder(args)
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
+                    var port = Environment.GetEnvironmentVariable("PORT") ?? "8081";
                     webBuilder.UseStartup<Startup>();
+                    webBuilder.UseUrls($"http://*:{port}");
                 });
     }
 }

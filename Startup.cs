@@ -114,7 +114,7 @@ namespace BizWebAPI
                 app.UseHsts();
             }
 
-            app.UseHttpsRedirection();
+            //app.UseHttpsRedirection();
 
             app.UseStaticFiles();
             //app.UseStaticFiles(new StaticFileOptions()
