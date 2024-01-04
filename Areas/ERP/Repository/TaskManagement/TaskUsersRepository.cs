@@ -213,9 +213,9 @@ namespace BizWebAPI.Areas.ERP.Repository.TaskManagement
                 var branch = await conn.QueryAsync<CmSystemUsers>(strSqlUsrGroupBranch, paramBranch);
                 string branchId = branch.FirstOrDefault().CMP_BRANCH_ID;
                 strSql = "SELECT SYS_USR_GRP_ID, SYS_USR_GRP_TITLE,SYS_USR_GRP_TYPE,CMP_BRANCH_ID,SYS_USR_GRP_PARENT FROM ERP_CM_SYSTEM_USER_GROUP UG WHERE SYS_USR_GRP_TITLE IN "
-                       + "((SELECT UG.SYS_USR_GRP_TITLE FROM ERP_CM_SYSTEM_USER_GROUP UG WHERE  UG.CMP_BRANCH_ID= :CMP_BRANCH_ID ) "
-                       + "UNION (SELECT SYS_USR_GRP_TITLE FROM ERP_CM_SYSTEM_USER_GROUP UG, ERP_CM_SOFTWARE_PACKAGE SP "
-                       + "WHERE UG.SYS_USR_GRP_ID=SP.SYS_USR_GRP_ID AND SP.SOFT_PKG_ID=:SOFT_PKG_ID)) ORDER BY CODE ";
+                       + "( SELECT UG.SYS_USR_GRP_TITLE FROM ERP_CM_SYSTEM_USER_GROUP UG WHERE  UG.CMP_BRANCH_ID= :CMP_BRANCH_ID  "
+                       + "UNION  SELECT SYS_USR_GRP_TITLE FROM ERP_CM_SYSTEM_USER_GROUP UG, ERP_CM_SOFTWARE_PACKAGE SP "
+                       + "WHERE UG.SYS_USR_GRP_ID=SP.SYS_USR_GRP_ID AND SP.SOFT_PKG_ID=:SOFT_PKG_ID ) ORDER BY CODE ";
                 var paramUserGroup = new { SOFT_PKG_ID = softwarePkgId, CMP_BRANCH_ID = branchId };
                 var userGroupDetails = await conn.QueryAsync<CmSystemUsers>(strSql, paramUserGroup);
 
@@ -564,7 +564,7 @@ namespace BizWebAPI.Areas.ERP.Repository.TaskManagement
 
                 var param = new { SYS_MENU_ID = decrypMenuId, SYS_MENU_TITLE= decryptMenuTitle, PATH_NAME= decryptMenuFile, MENU_ICON= menuIcon, SYS_MENU_SERIAL= menuSerial, SOFT_PKG_ID = softwarePkgId };
 
-                sqlMenuById = " UPDATE ERP_CM_SYSTEM_MENU SM  SET SYS_MENU_TITLE=:SYS_MENU_TITLE,PATH_NAME=:PATH_NAME,MENU_ICON=:MENU_ICON,SOFT_PKG_ID=:SOFT_PKG_ID,SYS_MENU_SERIAL=:SYS_MENU_SERIAL  WHERE SYS_MENU_ID =:SYS_MENU_ID  ";
+                sqlMenuById = " UPDATE ERP_CM_SYSTEM_MENU   SET SYS_MENU_TITLE=:SYS_MENU_TITLE,PATH_NAME=:PATH_NAME,MENU_ICON=:MENU_ICON ,SYS_MENU_SERIAL=:SYS_MENU_SERIAL  WHERE SYS_MENU_ID =:SYS_MENU_ID  ";
                 
                 var updateMenuData = await conn.QueryAsync<CmSystemAccessPolicy>(sqlMenuById, param);
 
